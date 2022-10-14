@@ -61,25 +61,29 @@ public class CarInsurance {
 	
 	//Premium computation Method
 	public int computePremium() {
+		
 		if(this.age > 80) {
 			return -1;
 		}
 		int price = 500;
-		if(this.genre == "M" && !this.isMarried && this.age <25) {
+		if(this.genre.equals("M") && !this.isMarried && this.age <25) {
+			System.out.println("CASE1");
 			price = price + 1500;
 		}
-		if(this.genre == "F" || this.isMarried) {
+		if(this.genre.equals("F") || this.isMarried) {
 			price = price - 200;
+			System.out.println("CASE2");
 		}
 		if(this.age > 45 && this.age < 65) {
 			price = price - 100;
+			System.out.println("CASE3");
 		}
 		return price;
 	}
 	
 	//Executable main function with user-inputs validations
 	public static void main(String[] args) {
-		//INCLUDE MAIN LOGIC HERE
+
 
         
     }
