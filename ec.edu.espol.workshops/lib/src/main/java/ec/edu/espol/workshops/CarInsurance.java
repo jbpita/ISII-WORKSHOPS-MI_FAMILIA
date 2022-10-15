@@ -67,15 +67,16 @@ public class CarInsurance {
 		}
 		int price = 500;
 		if(this.genre.equals("M") && !this.isMarried && this.age <25) {
-	         price = price + 1500;
+			
+			price = price + 1500;
 		}
 		if(this.genre.equals("F") || this.isMarried) {
 			price = price - 200;
-
+		
 		}
 		if(this.age > 45 && this.age < 65) {
 			price = price - 100;
-	
+			
 		}
 		return price;
 	}
