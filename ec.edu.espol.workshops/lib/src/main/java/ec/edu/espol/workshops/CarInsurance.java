@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class CarInsurance {
 	//Class Attributes
-	private int age;
+	private int age; // age properties
 	private String genre;
 	private boolean isMarried;
 	
@@ -23,6 +23,7 @@ public class CarInsurance {
 		return this.genre;
 	}
 	
+	/** RETURN marital married */
 	public boolean getMaritalIsMarried() {
 		return this.isMarried;
 	}
@@ -35,7 +36,7 @@ public class CarInsurance {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	
+	 /** set new married */
 	public void setMaritalIsMarried(boolean isMarried) {
 		this.isMarried = isMarried;
 	}
@@ -45,15 +46,15 @@ public class CarInsurance {
 	public String toString() {
 		String st = "cliente con edad: " + age + ", genero: ";
 		if(this.genre.equals("M")) {
-			st = st + "Masculino, ";
+			st += "Masculino, ";
 		}else {
-			st = st +  "Femenino, ";
+			st +=  "Femenino, ";
 		}
 		st = st + "y estado civil: ";
 		if(this.isMarried) {
-			st = st + "Casado.";
+			st += "Casado.";
 		}else {
-			st = st + "Soltero.";
+			st += "Soltero.";
 		}
 		
 		return st;
@@ -68,7 +69,7 @@ public class CarInsurance {
 		int price = 500;
 		if(this.genre.equals("M") && !this.isMarried && this.age <25) {
 			
-			price = price + 1500;
+			price += 1500;
 		}
 		if(this.genre.equals("F") || this.isMarried) {
 			price = price - 200;
