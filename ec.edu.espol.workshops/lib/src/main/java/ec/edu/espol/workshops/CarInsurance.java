@@ -116,11 +116,14 @@ public class CarInsurance {
    * genero válido// Salida M|F
    */
   public static Character checkGenreInput(String input) {
-	char genre = input.charAt(0);
+	  if(input.length() > 1) {
+		  return null;
+	  }
+	char genre = input.toUpperCase().charAt(0);
     if(genre != 'M' && genre != 'F') {
       return null;
     }else {
-    	return input.charAt(0);
+    	return input.toUpperCase().charAt(0);
     }
   }
   
@@ -129,7 +132,10 @@ public class CarInsurance {
    * retorna null si no corresponde a una a una entrada valida 
    */
   public static Boolean checkYesNoInput(String input) {
-	  char charInput = input.charAt(0);
+	  if(input.length() > 1) {
+		 return null;
+	  }
+	  char charInput = input.toUpperCase().charAt(0);
 	  if(charInput == 'S') {
 		  return true;
 	  }else if(charInput == 'N') {

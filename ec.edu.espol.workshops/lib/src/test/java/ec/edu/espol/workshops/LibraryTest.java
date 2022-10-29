@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 
 class LibraryTest {
   
-	//TEST-ID: T-001
+  //TEST-ID: T-001
   @Test void ageInputTest() {
 	  Assertions.assertEquals(CarInsurance.checkAgeInput("5"), 5);//CASE-ID: T001-C01
 	  Assertions.assertEquals(CarInsurance.checkAgeInput("0"), -1);//CASE-ID: T001-C02
