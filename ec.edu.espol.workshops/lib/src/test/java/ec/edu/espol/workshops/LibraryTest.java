@@ -5,7 +5,6 @@
 package ec.edu.espol.workshops;
 
 import org.junit.jupiter.api.Test;
-import src;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
