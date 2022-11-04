@@ -4,11 +4,18 @@
 package ec.edu.espol.workshops;
 
 import org.junit.jupiter.api.Test;
+import src;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
+	
+	private final CarInsurance carInsurance = new CarInsurance();
     @Test void someLibraryMethodReturnsTrue() {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+    }
+    
+    @Test void interpretableOutput() {
+    	
     }
 }
