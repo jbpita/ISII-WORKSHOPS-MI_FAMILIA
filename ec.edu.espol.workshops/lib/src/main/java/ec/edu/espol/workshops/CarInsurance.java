@@ -96,7 +96,7 @@ public class CarInsurance {
   
   /**
    * Javadoc. icheckAgeInput: Comprueba que la edad ingresada sea un numero positivo.
-   * Si la entrada es válida retorna la edad como int; caso contrario retorna -1
+   * Si la entrada es v�lida retorna la edad como int; caso contrario retorna -1
    */
   public static int checkAgeInput(String input) {
 	  int age;
@@ -113,7 +113,7 @@ public class CarInsurance {
   
   /**
    * Javadoc. checkGenreInput: Comprueba que el genero ingresado corresponda a un
-   * genero válido// Salida M|F
+   * genero v�lido// Salida M|F
    */
   public static Character checkGenreInput(String input) {
 	  if(input.length() > 1) {
@@ -208,7 +208,7 @@ public class CarInsurance {
     }
     
     
-    if (validLicense) {
+    if (true) {
       CarInsurance cs = new CarInsurance(edad, genero, esCasado);
       System.out.println("Calculando el monto para el cliente con" + cs.toString());
       int premium = cs.computePremium();

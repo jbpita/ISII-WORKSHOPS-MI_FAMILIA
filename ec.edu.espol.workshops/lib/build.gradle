@@ -19,6 +19,8 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+ 	testImplementation 'io.cucumber:cucumber-junit:6.8.1'
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
@@ -32,3 +34,27 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+configurations {
+	cucumberRuntime {
+	extendsFrom testImplementation
+	}
+}
+task cucumber() {
+	dependsOn assemble, testClasses
+	doLast {
+		javaexec {
+		main = "io.cucumber.core.cli.Main"
+		classpath = configurations.cucumberRuntime + sourceSets.main.output +
+		sourceSets.test.output
+		args = ['--plugin', 'pretty','--monochrome','--plugin', 'html:build/reports/cucumberreport.html','--glue', 'ec/edu/espol/workshops', 'src/test/resources/ec/edu/espol/workshops/']
+		}
+	}
+}
+
+
+
+
+
+
+
