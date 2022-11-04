@@ -208,7 +208,7 @@ public class CarInsurance {
     }
     
     
-    if (validLicense) {
+    if (true) {
       CarInsurance cs = new CarInsurance(edad, genero, esCasado);
       System.out.println("Calculando el monto para el cliente con" + cs.toString());
       int premium = cs.computePremium();
