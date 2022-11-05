@@ -101,6 +101,8 @@ class LibraryTest {
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C18
 	  myInsurance.setAll(81, 'F', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C19
+	  myInsurance.setAll(17, 'F', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C20
 	  
   }
   
