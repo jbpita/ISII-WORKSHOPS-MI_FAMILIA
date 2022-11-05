@@ -78,7 +78,7 @@ public class CarInsurance {
   * Javadoc. Premium computation method
   */
   public int computePremium() {
-    if (this.age > 80) {
+    if (this.age > 80 || this.age < 18) {
       return -1;
     }
     int price = 500;
