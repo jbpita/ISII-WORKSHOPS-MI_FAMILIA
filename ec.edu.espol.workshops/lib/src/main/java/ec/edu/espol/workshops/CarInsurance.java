@@ -9,12 +9,12 @@ public class CarInsurance {
   //Class Attributes
   private int age;
   private char genre;
-  private boolean isMarried;
+  private Boolean isMarried;
 
   /**
   * Javadoc. Consructor CarInsurance
   */
-  public CarInsurance(int age, char genre, boolean isMarried) {
+  public CarInsurance(int age, char genre, Boolean isMarried) {
     this.age = age;
     this.genre = genre;
     this.isMarried = isMarried;
@@ -46,13 +46,13 @@ public class CarInsurance {
     this.genre = genre;
   }
   
-  public void setAll(int age, char genre, boolean isMarried) {
+  public void setAll(int age, char genre, Boolean isMarried) {
 	  this.age = age;
 	  this.genre = genre;
 	  this.isMarried = isMarried;
   }
 
-  public void setMaritalIsMarried(boolean isMarried) {
+  public void setMaritalIsMarried(Boolean isMarried) {
     this.isMarried = isMarried;
   }
 
@@ -78,7 +78,14 @@ public class CarInsurance {
   * Javadoc. Premium computation method
   */
   public int computePremium() {
-    if (this.age > 80) {
+	  
+	if(this.genre != 'M' && this.genre != 'F' )  
+		return -1;
+	
+	if(	this.isMarried == null )
+		return -1;
+	
+    if (this.age > 80 || this.age < 18) {
       return -1;
     }
     int price = 500;

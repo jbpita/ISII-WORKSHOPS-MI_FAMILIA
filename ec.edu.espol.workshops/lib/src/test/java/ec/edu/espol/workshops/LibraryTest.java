@@ -36,23 +36,23 @@ class LibraryTest {
 	  myInsurance.setAll(17, 'A', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
 	  
-	  myInsurance.setAll(25, 'M', true);
+	  myInsurance.setAll(24, 'M', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(24, 'M', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),2000);//CASE-ID: T004-C02
+	  myInsurance.setAll(24, 'M', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(24, 'F', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(24, 'F', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C02
+	  myInsurance.setAll(24, 'F', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(24, 'A', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
-	  myInsurance.setAll(25, 'M', false);
+	  myInsurance.setAll(24, 'A', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(25, 'M', null);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(25, 'F', true);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
-	  myInsurance.setAll(25, 'F', false);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(25, 'F', null);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(25, 'A', true);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
-	  myInsurance.setAll(25, 'A', false);
-	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(25, 'A', null);
+	  myInsurance.setAll(24, 'A', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
 	  
 	  myInsurance.setAll(81, 'M', true);
