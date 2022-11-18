@@ -20,7 +20,7 @@ class LibraryTest {
 	  Assertions.assertEquals(myInsurance.computePremium(),2000);//CASE-ID: C01-T002
 	  myInsurance.setAll(18, 'M', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: C01-T003
-	  myInsurance.setAll(18, 'F', true)
+	  myInsurance.setAll(18, 'F', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: C01-T004
 	  myInsurance.setAll(18, 'F', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: C01-T005
