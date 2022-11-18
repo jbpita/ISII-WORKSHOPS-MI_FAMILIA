@@ -11,12 +11,30 @@ import org.junit.jupiter.api.Assertions;
 
 class LibraryTest {
   
+	CarInsurance myInsurance = new CarInsurance();
 
- 
-  //TEST: FUNCTIONAL SYSTEM TEST
-  @Test void computePremiumTest() {
-	  CarInsurance myInsurance = new CarInsurance();
-	  
+  @Test void lowerValueTest() {
+	  myInsurance.setAll(18, 'M', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T005-C01
+	  myInsurance.setAll(18, 'M', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),2000);//CASE-ID: T004-C02
+	  myInsurance.setAll(18, 'M', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(18, 'F', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(18, 'F', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C02
+	  myInsurance.setAll(18, 'F', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(18, 'A', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
+	  myInsurance.setAll(18, 'A', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(18, 'A', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+  }
+  
+  @Test void belowLowerValueTest() {
 	  myInsurance.setAll(17, 'M', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
 	  myInsurance.setAll(17, 'M', false);
@@ -35,26 +53,72 @@ class LibraryTest {
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
 	  myInsurance.setAll(17, 'A', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  
-	  myInsurance.setAll(24, 'M', true);
-	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
-	  myInsurance.setAll(24, 'M', false);
+  }
+  
+  @Test void aboveLowerValueTest() {
+	  myInsurance.setAll(19, 'M', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T005-C01
+	  myInsurance.setAll(19, 'M', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),2000);//CASE-ID: T004-C02
-	  myInsurance.setAll(24, 'M', null);
+	  myInsurance.setAll(19, 'M', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(24, 'F', true);
+	  myInsurance.setAll(19, 'F', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
-	  myInsurance.setAll(24, 'F', false);
+	  myInsurance.setAll(19, 'F', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C02
-	  myInsurance.setAll(24, 'F', null);
+	  myInsurance.setAll(19, 'F', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(24, 'A', true);
+	  myInsurance.setAll(19, 'A', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
-	  myInsurance.setAll(24, 'A', false);
+	  myInsurance.setAll(19, 'A', false);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  myInsurance.setAll(24, 'A', null);
+	  myInsurance.setAll(19, 'A', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  
+  }
+  
+  @Test void upperValueTest() {
+	  myInsurance.setAll(80, 'M', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(80, 'M', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),500);//CASE-ID: T004-C02
+	  myInsurance.setAll(80, 'M', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(80, 'F', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(80, 'F', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C02
+	  myInsurance.setAll(80, 'F', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(80, 'A', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
+	  myInsurance.setAll(80, 'A', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(80, 'A', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+  }
+  
+  @Test void belowUpperValueTest() {
+	  myInsurance.setAll(79, 'M', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(79, 'M', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),500);//CASE-ID: T004-C02
+	  myInsurance.setAll(79, 'M', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(79, 'F', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C01
+	  myInsurance.setAll(79, 'F', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),300);//CASE-ID: T004-C02
+	  myInsurance.setAll(79, 'F', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(79, 'A', true);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
+	  myInsurance.setAll(79, 'A', false);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+	  myInsurance.setAll(79, 'A', null);
+	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
+  }
+  
+  @Test void aboveUpperValueTest() {
 	  myInsurance.setAll(81, 'M', true);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C01
 	  myInsurance.setAll(81, 'M', false);
@@ -73,8 +137,6 @@ class LibraryTest {
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
 	  myInsurance.setAll(81, 'A', null);
 	  Assertions.assertEquals(myInsurance.computePremium(),-1);//CASE-ID: T004-C02
-	  
-  }
-  
+  }  
   
 }
