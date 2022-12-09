@@ -88,7 +88,7 @@ public class CarInsurance {
     if (this.age > 80 || this.age < 18) {
       return -1;
     }
-    int price = 500;
+    int price = 600;
     if (this.genre == 'M' && !this.isMarried && this.age < 25) {
       price = price + 1500;
     }
