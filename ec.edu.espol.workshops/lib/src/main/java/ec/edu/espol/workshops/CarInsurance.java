@@ -14,21 +14,19 @@ public class CarInsurance {
   /**
   * Javadoc. Consructor CarInsurance
   */
+  /*
   public CarInsurance(int age, char genre, Boolean isMarried) {
     this.age = age;
     this.genre = genre;
     this.isMarried = isMarried;
+  }*/
+  
+  public CarInsurance() {
+	  
   }
-  
-  public CarInsurance(int age, char genre) {
-	    this.age = age;
-	    this.genre = genre;
-	    this.isMarried = null;
-	    }
-  
-  public CarInsurance() {}
-  
+
   //Class Getters
+  /*
   public int getAge() {
     return this.age;
   }
@@ -48,15 +46,15 @@ public class CarInsurance {
 
   public void setGenre(char genre) {
     this.genre = genre;
-  }
+  }*/
   
   public void setAll(int age, char genre, Boolean isMarried) {
 	  this.age = age;
 	  this.genre = genre;
 	  this.isMarried = isMarried;
   }
-
-  public void setMaritalIsMarried(boolean isMarried) {
+/*
+  public void setMaritalIsMarried(Boolean isMarried) {
     this.isMarried = isMarried;
   }
 
@@ -82,27 +80,28 @@ public class CarInsurance {
   * Javadoc. Premium computation method
   */
   public int computePremium() {
-    if (this.age > 80) {
-      return -1;
-    }
-    
-    int price = 500;
-    if (this.genre == 'M' && !this.isMarried && this.age < 25) {
-      price = price + 1500;
-    }
-    if (this.genre == 'F' || this.isMarried) {
-      price = price - 200;
-    }
-    if (this.age > 45 && this.age < 65) {
-      price = price - 100;
-    }
-    return price;
+	  int price = 500;
+	    if (this.age > 80) {
+	      price = -1;
+	    }else{
+	      if (this.genre == 'M' && !this.isMarried && this.age < 25) {
+	        price = price + 1500;
+	      }
+	      if (this.genre == 'F' || this.isMarried) {
+	        price = price - 200;
+	      }
+	      if (this.age > 45 && this.age < 65) {
+	        price = price - 100;
+	      }
+	    }
+	    return price;
   }
   
   /**
    * Javadoc. icheckAgeInput: Comprueba que la edad ingresada sea un numero positivo.
-   * Si la entrada es válida retorna la edad como int; caso contrario retorna -1
+   * Si la entrada es vï¿½lida retorna la edad como int; caso contrario retorna -1
    */
+  /*
   public static int checkAgeInput(String input) {
 	  int age;
 	try {
@@ -114,12 +113,13 @@ public class CarInsurance {
 	} catch (NumberFormatException ex) {
 	  return -1;
 	}
-  }
+  }*/
   
   /**
    * Javadoc. checkGenreInput: Comprueba que el genero ingresado corresponda a un
-   * genero válido// Salida M|F
+   * genero vï¿½lido// Salida M|F
    */
+  /*
   public static Character checkGenreInput(String input) {
 	  if(input.length() > 1) {
 		  return null;
@@ -130,12 +130,13 @@ public class CarInsurance {
     }else {
     	return input.toUpperCase().charAt(0);
     }
-  }
+  }*/
   
   /**
    * Javadoc. checkYesNoInput: Comprueba si la entrada es S o N, retorna true y false respectivamente
    * retorna null si no corresponde a una a una entrada valida 
    */
+  /*
   public static Boolean checkYesNoInput(String input) {
 	  if(input.length() > 1) {
 		 return null;
@@ -148,13 +149,14 @@ public class CarInsurance {
 	  }else {
 		  return null;
 	  }
-  }
+  }*/
   
   
   
   /**
   * Javadoc. Executable main function with user-inputs validations
   */
+  /*
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int age = 0;
@@ -227,5 +229,5 @@ public class CarInsurance {
           + "de conducir valida para comprar un seguro de auto.");
     }
     sc.close();
-  }
+  }*/
 }

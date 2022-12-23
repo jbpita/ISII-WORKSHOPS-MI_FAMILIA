@@ -8,8 +8,9 @@ package ec.edu.espol.workshops;
 /**
 * Javadoc. Premium computation method
 */
+/*
 public class Library {
   public boolean someLibraryMethod() {
     return true;
   }
-}
+}*/
