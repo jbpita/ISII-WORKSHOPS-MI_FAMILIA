@@ -156,7 +156,10 @@ public class CarInsurance {
     String genre = "";
     boolean isMarried = false;
     boolean validLicense = false;
+
+    System.out.println("Entrada de datos. Puede ingresar la letra \"q\" para terminar la ejecucion del programa.");
     
+    boolean terminar = false;
     
     System.out.println("Introducir la edad del cliente: ");
     int edad = -1;
@@ -164,63 +167,74 @@ public class CarInsurance {
       age = checkAgeInput(sc.nextLine());
       if(age > 0) {
     	  break;
+      }if(age < 0){
+        terminar = true;
+        break
       }
       System.out.println("La edad solo puede contener caracteres numericos."
         + "Vuelva a intentarlo:");
     }
     
-    
-    System.out.println("Introducir el genero del cliente."
+    if(!terminar){
+      System.out.println("Introducir el genero del cliente."
         + "Intruzca M para masculino y F para femenino:");
-    Character genero = null;
-    while (genero == null) {
-      genero = checkGenreInput(sc.nextLine());
-      if (genero != null) {
-    	  break;
+      Character genero = null;
+      while (genero == null) {
+        genero = checkGenreInput(sc.nextLine());
+        if (genero != null) {
+          break;
+        }
+      System.out.println("Entrada invalida, vuelva a intentarlo.\n Intruzca M para masculino y"
+        + "F para femenino:");
       }
-    System.out.println("Entrada invalida, vuelva a intentarlo.\n Intruzca M para masculino y"
-      + "F para femenino:");
     }
     
     
-    System.out.println("El cliente es casado? Introduzca S para si, N para no: ");
-    Boolean esCasado = null;
-    while (esCasado == null) {
-      esCasado = checkYesNoInput(sc.nextLine());
-      if(esCasado != null) {
-    	  break;
+    if(!terminar){
+      System.out.println("El cliente es casado? Introduzca S para si, N para no: ");
+      Boolean esCasado = null;
+      while (esCasado == null) {
+        esCasado = checkYesNoInput(sc.nextLine());
+        if(esCasado != null) {
+          break;
+        }
+        System.out.println("Entrada invalida, vuelva a intentarlo."
+            + "\nIntruzca S si el cliente es casado, N si no es casado: ");
       }
-      System.out.println("Entrada invalida, vuelva a intentarlo."
-          + "\nIntruzca S si el cliente es casado, N si no es casado: ");
     }
     
     
-    System.out.println("Solicite la licencia de conducir del cliente y verifique su validez."
+    if(!terminar){
+      System.out.println("Solicite la licencia de conducir del cliente y verifique su validez."
         + "\nSi la licencia es valida introduzca S para si, N para no: ");
-    Boolean licenciaValida = null;
-    while (licenciaValida == null) {
-      licenciaValida = checkYesNoInput(sc.nextLine());
-      if(licenciaValida != null) {
-    	  break;
+      Boolean licenciaValida = null;
+      while (licenciaValida == null) {
+        licenciaValida = checkYesNoInput(sc.nextLine());
+        if(licenciaValida != null) {
+          break;
+        }
+        System.out.println("Entrada invalida, vuelva a intentarlo."
+          + "\nIntruzca S si la licencia del cliente es valida, N si no es valida: ");
       }
-      System.out.println("Entrada invalida, vuelva a intentarlo."
-        + "\nIntruzca S si la licencia del cliente es valida, N si no es valida: ");
     }
     
     
-    if (true) {
-      CarInsurance cs = new CarInsurance(edad, genero, esCasado);
-      System.out.println("Calculando el monto para el cliente con" + cs.toString());
-      int premium = cs.computePremium();
-      if (premium > 0) {
-        System.out.println("Monto final del seguro Premium: $" + premium);
+    if(!terminar){
+      if (true) {
+        CarInsurance cs = new CarInsurance(edad, genero, esCasado);
+        System.out.println("Calculando el monto para el cliente con" + cs.toString());
+        int premium = cs.computePremium();
+        if (premium > 0) {
+          System.out.println("Monto final del seguro Premium: $" + premium);
+        } else {
+          System.out.println("El cliente no aplica para este seguro.");
+        }
       } else {
-        System.out.println("El cliente no aplica para este seguro.");
+        System.out.println("De acuerdo a la ley nacional, el cliente requiere una licencia"
+            + "de conducir valida para comprar un seguro de auto.");
       }
-    } else {
-      System.out.println("De acuerdo a la ley nacional, el cliente requiere una licencia"
-          + "de conducir valida para comprar un seguro de auto.");
+      sc.close();
     }
-    sc.close();
+    
   }
 }
